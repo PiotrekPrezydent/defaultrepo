@@ -23,29 +23,14 @@ jobs:
       run: dotnet restore
 
     - name: Skompiluj projekt i przeslij wynik jako artifact
-      run: dotnet build --configuration Release --verbosity minimal
-      if: always()
-      # Przeciążenie postępu kompilacji zapisując wynik do archiwum
-      env:
-        BUILD_ID: ${{ github.run_id }}
-      # Utwórz archiwum ZIP z plikami wyników kompilacji
-    - name: Do zip
-      run: zip -r build_results.zip bin/obj build.log
-    - name: upload
-      run: upload-artifact:build_results.zip
-     
-
-    - name: Pobierz archiwum ZIP z wynikami i przeslij je do test-reporter
-      uses: actions/download-artifact@v2
+      run: dotnet build --configuration Release --verbosity minimal > abc
+      
+    - name: Upload dotnet test results
+      uses: actions/upload-artifact@v3
       with:
-        name: build_results.zip
-        path: build_results
-      # Przekaż wyniki kompilacji do akcji test-reporter
-      run: |
-        dorny/test-reporter@v1
-        with:
-          format: "dotnet"
-          build: "${{ github.sha }}"
-          coverage: "${{ steps.coverage_report.outputs.coverage }}"
-          test_results: "$(cat build_results/build.log)"
+        name: dotnet-results-${{ matrix.dotnet-version }}
+        path: abc
+      # Use always() to always run this step to publish test results when there are test failures
+      if: ${{ always() }}
+
 
