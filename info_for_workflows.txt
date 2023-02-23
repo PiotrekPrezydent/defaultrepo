@@ -1,0 +1,29 @@
+name: GitHub Actions Demo <- Name of workflow
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀 <- name of action runned by workflow, if no name specifed it will create action with name of commit
+on: [push] <- action will be runned every push 
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest <- action will be runned on ubuntu system
+    steps: <- all steps that will be logged in action
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
+      - run: echo "🍏 This job's status is ${{ job.status }}."
+
+
+Important staff:
+
+${{ github.actor }} - returns name of githubuser
+${{ github.event_name }} - returns name of event (push, merge etc)
+${{ github.ref }} - returns name of branch
+${{ github.repository }} - returns name of repo
+${{ runner.os }} - returns server that is running action
+ls ${{ github.workspace }} - returns all files in repo
+${{ job.status }} - returns current status of action
