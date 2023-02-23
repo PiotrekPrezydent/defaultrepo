@@ -22,17 +22,18 @@ jobs:
     - name: Install dependencies
       run: dotnet restore
 
-    - name: Build
-      run: dotnet build
+    - name: Build solution and collect results
+      run: dotnet build /p:CollectPreprocessorOutput=true /t:Rebuild
       
-    - name: Roslynator
-      run: dotnet tool install -g roslynator.dotnet.cli
-    - name: Analyze
-      run: roslynator analyze -o report.xml
-      
-    - name: Upload Code Analysis Report
-      uses: actions/upload-artifact@v2
+    - name: Convert TRX results to JUnit format
+      run: |
+        dotnet tool install --global trx2junit
+        mkdir -p test-results
+        trx2junit -i bin/Debug/*.trx -o test-results/results.xml
+        
+    - name: Upload test results
+      uses: dorny/test-reporter@v1
       with:
-        name: Code Analysis Report
-        path: report.xml
+        name: Build Results
+        path: test-results/results.xml
 
