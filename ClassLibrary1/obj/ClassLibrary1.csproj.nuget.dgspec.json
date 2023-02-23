@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Piotrek\\source\\repos\\defaultrepo\\DefaultConsoleApp\\DefaultConsoleApp.csproj": {}
+    "C:\\Users\\Piotrek\\source\\repos\\defaultrepo\\ClassLibrary1\\ClassLibrary1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Piotrek\\source\\repos\\defaultrepo\\DefaultConsoleApp\\DefaultConsoleApp.csproj": {
+    "C:\\Users\\Piotrek\\source\\repos\\defaultrepo\\ClassLibrary1\\ClassLibrary1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Piotrek\\source\\repos\\defaultrepo\\DefaultConsoleApp\\DefaultConsoleApp.csproj",
-        "projectName": "DefaultConsoleApp",
-        "projectPath": "C:\\Users\\Piotrek\\source\\repos\\defaultrepo\\DefaultConsoleApp\\DefaultConsoleApp.csproj",
+        "projectUniqueName": "C:\\Users\\Piotrek\\source\\repos\\defaultrepo\\ClassLibrary1\\ClassLibrary1.csproj",
+        "projectName": "ClassLibrary1",
+        "projectPath": "C:\\Users\\Piotrek\\source\\repos\\defaultrepo\\ClassLibrary1\\ClassLibrary1.csproj",
         "packagesPath": "C:\\Users\\Piotrek\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Piotrek\\source\\repos\\defaultrepo\\DefaultConsoleApp\\obj\\",
+        "outputPath": "C:\\Users\\Piotrek\\source\\repos\\defaultrepo\\ClassLibrary1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
