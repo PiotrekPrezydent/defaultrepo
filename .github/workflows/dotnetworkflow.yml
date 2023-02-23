@@ -23,7 +23,7 @@ jobs:
       run: dotnet restore
 
     - name: Skompiluj projekt i przeslij wynik jako artifact
-      run: dotnet build --configuration Release --verbosity minimal > abc.xml
+      run: dotnet build > abc.xml
       
     - name: showxml
       run: cat abc.xml
