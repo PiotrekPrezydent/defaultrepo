@@ -3,7 +3,7 @@ name: dotnet diagnostic
 on: [push]
 
 jobs:
-  build-test:
+  build-csharp-solution:
 
     runs-on: ubuntu-latest
     
