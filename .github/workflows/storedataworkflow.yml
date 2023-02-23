@@ -3,13 +3,12 @@ name: dotnet store
 on: [push]
 
 jobs:
- build_and_test:
-
-    env:
-      BUILD_CONFIG: 'Release'
-      SOLUTION: 'DefaultConsoleApp.sln'
+  build:
 
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        dotnet-version: ['2.1']
 
     steps:
         - uses: actions/checkout@v3
