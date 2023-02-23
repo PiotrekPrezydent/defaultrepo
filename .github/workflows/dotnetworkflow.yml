@@ -23,12 +23,18 @@ jobs:
       run: dotnet restore
 
     - name: Build solution and collect results
-      run: dotnet build /flp:v=diag;logfile=MyLog.log
-    - name: Test Report
+      run: dotnet build --configuration Release --verbosity minimal > build.log
+      
+    - name: Przeczytaj plik z wynikiem i zapisz do zmiennej
+      id: build_results
+      run: echo "::set-output name=build_results::$(cat build.log
+      
+    - name: Diagnostic Report
       uses: dorny/test-reporter@v1
       if: always()
       with:
-        name: DotNET Tests
-        path: "**/MyLog.log"                           
-        reporter: dotnet-trx
+        format: "dotnet"
+        build: "${{ github.sha }}"
+        coverage: "${{ steps.coverage_report.outputs.coverage }}"
+        test_results: "${{ steps.build_results.outputs.build_results }}"
 
