@@ -3,7 +3,7 @@ name: dotnet store
 on: [push]
 
 jobs:
-  build-test:
+  build:
 
     runs-on: ubuntu-latest
     
@@ -24,6 +24,14 @@ jobs:
 
     - name: Build
       run: dotnet build
-      
-    - name: Roslynator
-      run: dotnet roslynator analyze -f msvs -o report.xml
+
+    - name: Test with dotnet
+      run: dotnet test --logger "trx;LogFileName=test-results.trx"
+
+    - name: Test Report
+      uses: dorny/test-reporter@v1
+      if: always()
+      with:
+        name: DotNET Tests
+        path: "**/test-results.trx"                           
+        reporter: dotnet-trx
