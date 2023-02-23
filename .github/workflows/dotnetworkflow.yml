@@ -21,7 +21,7 @@ jobs:
         run: |
           dotnet restore
           dotnet build --no-restore
-          dotnet tool install --global Roslynator.Analyzers --version 3.0.0
+          dotnet tool install --global Roslynator.Analyzers --version 4.2.0
           dotnet roslynator analyze -f msvs -o report.xml
 
       - name: Upload Code Analysis Report
