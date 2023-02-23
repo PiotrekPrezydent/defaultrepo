@@ -23,5 +23,12 @@ jobs:
       run: dotnet restore
 
     - name: Build solution and collect results
-      run: dotnet build --configuration Release --verbosity minimal
+      run: dotnet build --configuration Release --verbosity minimal "trx;DiagFileName=diag-results.trx" || true
+    - name: Test Report
+      uses: dorny/test-reporter@v1
+      if: always()
+      with:
+        name: DotNET Tests
+        path: "**/diag-results.trx"                           
+        reporter: dotnet-trx
 
