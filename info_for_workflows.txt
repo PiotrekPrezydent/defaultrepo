@@ -21,7 +21,8 @@ jobs:
 Important staff:
 ${{ github.actor }} - returns name of githubuser
 ${{ github.event_name }} - returns name of event (push, merge etc)
-${{ runner.os }} - returns server that is running action
+${{ github.ref }} - returns name of branch
 ${{ github.repository }} - returns name of repo
+${{ runner.os }} - returns server that is running action
 ls ${{ github.workspace }} - returns all files in repo
 ${{ job.status }} - returns current status of action
