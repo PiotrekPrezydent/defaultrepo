@@ -25,12 +25,7 @@ jobs:
     - name: Skompiluj projekt i przeslij wynik jako artifact
       run: dotnet build --configuration Release --verbosity minimal > abc.xml
       
-    - name: Diag Report
-      uses: dorny/test-reporter@v1
-      if: always()
-      with:
-        name: DotNET Tests
-        path: "abc.xml"                           
-        reporter: dotnet-trx
+    - name: showxml
+      run: cat abc.xml
 
 
