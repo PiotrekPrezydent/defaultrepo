@@ -23,7 +23,5 @@ jobs:
       run: dotnet restore
 
     - name: Build solution and collect results
-      run: dotnet build
-    - name: test
-      run: dotnet-dump
+      run: dotnet build --configuration Release --verbosity diag
 
