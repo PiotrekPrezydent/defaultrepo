@@ -16,18 +16,18 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
-      - name: Install dependencies
-        run: dotnet restore
-      - name: Build
-        run: dotnet build --logger "trx;LogFileName=BuildInfo-${{ matrix.dotnet-version }}.trx"
-        
-      - name: Build Report
-        uses: dorny/test-reporter@v1
-        if: always()
+
+      - name: Build and Analyze code
+        run: |
+          dotnet restore
+          dotnet build --no-restore
+          dotnet tool install --global Roslynator.Analyzers --version 3.0.0
+          dotnet roslynator analyze -f msvs -o report.xml
+
+      - name: Upload Code Analysis Report
+        uses: actions/upload-artifact@v2
         with:
-          name: DotNET Build
-          path: "**/Build-${{ matrix.dotnet-version }}.trx"                           
-          reporter: dotnet-trx
-          fail-on-error: true
+          name: Code Analysis Report
+          path: report.xml
 
 
