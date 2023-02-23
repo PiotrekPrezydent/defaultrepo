@@ -24,16 +24,4 @@ jobs:
 
     - name: Build solution and collect results
       run: dotnet build /p:CollectPreprocessorOutput=true /t:Rebuild
-      
-    - name: Convert TRX results to JUnit format
-      run: |
-        dotnet tool install --global trx2junit
-        mkdir -p test-results
-        trx2junit -i bin/Debug/*.trx -o test-results/results.xml
-        
-    - name: Upload test results
-      uses: dorny/test-reporter@v1
-      with:
-        name: Build Results
-        path: "test-results/results.xml"
 
