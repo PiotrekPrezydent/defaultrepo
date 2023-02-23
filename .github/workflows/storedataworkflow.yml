@@ -26,7 +26,7 @@ jobs:
       run: dotnet build
 
     - name: Test with dotnet
-      run: dotnet test --logger "trx;LogFileName=TestResults-${{ matrix.dotnet-version }}.trx" || true
+      run: dotnet test --logger "trx;LogFileName=TestResults-${{ matrix.dotnet-version }}.trx"
 
     - name: Test Report
       uses: dorny/test-reporter@v1
