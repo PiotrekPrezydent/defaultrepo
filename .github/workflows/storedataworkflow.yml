@@ -22,9 +22,6 @@ jobs:
     - name: Install dependencies
       run: dotnet restore
 
-    - name: Build
-      run: dotnet build
-
     - name: Test with dotnet
       run: dotnet test --logger "trx;LogFileName=test-results.trx"
 
