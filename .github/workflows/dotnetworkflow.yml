@@ -23,13 +23,13 @@ jobs:
       run: dotnet restore
 
     - name: Skompiluj projekt i przeslij wynik jako artifact
-      run: dotnet build --configuration Release --verbosity minimal > abc
+      run: dotnet build --configuration Release --verbosity minimal > abc.xml
       
     - name: Upload dotnet test results
       uses: actions/upload-artifact@v3
       with:
         name: dotnet-results-${{ matrix.dotnet-version }}
-        path: abc
+        path: abc.xml
       # Use always() to always run this step to publish test results when there are test failures
       if: ${{ always() }}
 
