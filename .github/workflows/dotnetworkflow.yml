@@ -23,11 +23,8 @@ jobs:
       run: dotnet restore
 
     - name: Build
-      run: dotnet build --verbosity diagnostic > build.log 2>&1 || true
+      run: dotnet build
       
-    - name: Upload build log
-      uses: actions/upload-artifact@v2
-      with:
-        name: build-log
-        path: build.log
+    - name: Roslynator
+      run: dotnet roslynator analyze -f -o report.xml
 
