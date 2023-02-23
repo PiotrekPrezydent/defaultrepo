@@ -1,33 +1,33 @@
-name: dotnet package
+name: dotnet store
 
 on: [push]
 
 jobs:
-  build:
+  build-test:
 
     runs-on: ubuntu-latest
+    
     strategy:
       matrix:
-        dotnet-version: [ '2.1']
+        dotnet-version: ['2.1']
 
     steps:
-      - uses: actions/checkout@v3
-      - name: Setup dotnet
-        uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: ${{ matrix.dotnet-version }}
+    - uses: actions/checkout@v3
 
-      - name: Build and Analyze code
-        run: |
-          dotnet restore
-          dotnet build --no-restore
-          dotnet tool install -g roslynator.dotnet.cli
-          dotnet roslynator analyze -f msvs -o report.xml
+    - name: Setup dotnet
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: ${{ matrix.dotnet-version }}
 
-      - name: Upload Code Analysis Report
-        uses: actions/upload-artifact@v2
-        with:
-          name: Code Analysis Report
-          path: report.xml
+    - name: Install dependencies
+      run: dotnet restore
 
+    - name: Build
+      run: dotnet build --verbosity diagnostic > build.log 2>&1 || true
+      
+    - name: Upload build log
+      uses: actions/upload-artifact@v2
+      with:
+        name: build-log
+        path: build.log
 
