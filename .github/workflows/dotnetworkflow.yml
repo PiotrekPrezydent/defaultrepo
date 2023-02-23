@@ -14,18 +14,13 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Setup dotnet
-      uses: actions/setup-dotnet@v3
+    - name: Build project
+      run: dotnet build --configuration Release
+
+    - name: Analyze code
+      uses: github/codeql-action/analyze@v1
       with:
-        dotnet-version: ${{ matrix.dotnet-version }}
-
-    - name: Install dependencies
-      run: dotnet restore
-
-    - name: Skompiluj projekt i przeslij wynik jako artifact
-      run: dotnet build > abc.xml
-      
-    - name: showxml
-      run: cat abc.xml
+        languages: csharp
+        query: security/ql/src/CodeQL-Queries/CSharp/Security/CWE-119/CWE-119.ql
 
 
