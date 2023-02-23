@@ -23,5 +23,7 @@ jobs:
       run: dotnet restore
 
     - name: Build solution and collect results
-      run: dotnet build /p:CollectPreprocessorOutput=true /t:Rebuild
+      run: dotnet build
+    - name: test
+      run: dotnet-dump
 
