@@ -35,5 +35,5 @@ jobs:
       uses: dorny/test-reporter@v1
       with:
         name: Build Results
-        path: test-results/results.xml
+        path: "test-results/results.xml"
 
