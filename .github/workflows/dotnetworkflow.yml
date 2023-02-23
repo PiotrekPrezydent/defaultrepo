@@ -28,5 +28,5 @@ jobs:
     - name: Roslynator
       run: dotnet tool install -g roslynator.dotnet.cli
     - name: Analyze
-      run: dotnet roslynator analyze -f -o report.xml
+      run: dotnet roslynator analyze -o report.xml
 
