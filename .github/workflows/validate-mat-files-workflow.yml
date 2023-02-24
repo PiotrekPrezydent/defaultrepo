@@ -19,10 +19,15 @@ jobs:
     - name: Check .mat file names
       run: |
         csfiles=$(find . -name '*.cs' -print)
+        
         for file in $csfiles; do
           filename=$(basename $file)
-          if [[ $filename != ${filename^^} ]]; then
-            echo "File '$filename' is not upper case"
-          fi
+          
+          if [[ ${filename:0:1} =~ [[:upper:]] ]]; then
+            echo "$file starts with an uppercase letter"
+            
+          else
+            echo "$file does not start with an uppercase letter"
+            
         done
 
