@@ -17,5 +17,14 @@ jobs:
       run: dotnet build
         
     - name: Check .mat file names
-      run: find . -name '*.cs' -print
+      run: |
+        csfiles=$(find . -name '*.cs' -print)
+        for file in csfiles; do
+          if [[ $file != ${file^^} ]]; then
+            echo "File '$file' is not upper case"
+          fi
+          if [[ $file == ${file^^}]]; then
+            echo "File '$file' is upper case"
+          fi
+        done
 
