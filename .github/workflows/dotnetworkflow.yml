@@ -17,10 +17,4 @@ jobs:
     - name: Build project
       run: dotnet build --configuration Release
 
-    - name: Analyze code
-      uses: github/codeql-action/analyze@v1
-      with:
-        languages: csharp
-        query: security/ql/src/CodeQL-Queries/CSharp/Security/CWE-119/CWE-119.ql
-
 
