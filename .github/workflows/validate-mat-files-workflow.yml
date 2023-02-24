@@ -12,16 +12,13 @@ jobs:
         
     steps:
     - uses: actions/checkout@v3
-    
-    - name: Build project
-      run: dotnet build
-        
+           
     - name: Check .mat file names
       run: |
         csfiles=$(find . -name '*.mat' -print)
         for file in $csfiles; do
           filename=$(basename $file)
-          if ![[ ${filename:0:1} =~ [[:upper:]] ]]; then
+          if [[ ${filename:0:1} != [[:upper:]] ]]; then
             echo "$filename doesn't start with upper case!"
           fi
         done
