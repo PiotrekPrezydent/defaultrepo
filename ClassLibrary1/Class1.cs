@@ -8,7 +8,7 @@ namespace ClassLibrary1
         {
 
         }
-        void main(){}
+        void main(){} generate error in action :)
 
         public double Add(double num1, double num2) => num1 + num2;
 
