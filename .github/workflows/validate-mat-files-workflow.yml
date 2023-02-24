@@ -16,7 +16,7 @@ jobs:
     - name: Check .mat file names
       run: |
         csfiles=$(find . -name '*.mat' -print)
-        not_valid_files = ()
+        not_valid_files=()
         for file in $csfiles; do
           filename=$(basename $file)
           if [[ ${filename:0:1} != [[:upper:]] ]]; then
