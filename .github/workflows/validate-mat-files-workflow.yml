@@ -17,8 +17,5 @@ jobs:
       run: dotnet build
         
     - name: Check .mat file names
-      run: |
-        shopt -s globstar
-        for file in find . -name '*.cs'; do
-          echo "File name '$file' "
-        done
+      run: find . -name '*.cs' -print
+
