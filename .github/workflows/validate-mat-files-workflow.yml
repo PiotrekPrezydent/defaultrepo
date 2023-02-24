@@ -20,8 +20,8 @@ jobs:
       run: |
         shopt -s globstar
         for file in **/*.mat; do
-          if [[ $file != ${file^^} ]]; then
+          if [[ $(basename "$file") != $(basename "$file" | tr '[:lower:]' '[:upper:]') ]]; then
             echo "ERROR: File name '$file' should be uppercase."
             exit 1
           fi
-        done
+        don
