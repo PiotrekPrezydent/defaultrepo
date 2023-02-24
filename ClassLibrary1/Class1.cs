@@ -8,7 +8,7 @@ namespace ClassLibrary1
         {
 
         }
-        void main(){}gsdgsetsgdshgtur
+        void main(){}gsa
 
         public double Add(double num1, double num2) => num1 + num2;
 
