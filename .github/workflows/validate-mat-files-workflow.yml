@@ -23,8 +23,5 @@ jobs:
           if [[ $file != ${file^^} ]]; then
             echo "File '$file' is not upper case"
           fi
-          if [[ $file == ${file^^}]]; then
-            echo "File '$file' is upper case"
-          fi
         done
 
