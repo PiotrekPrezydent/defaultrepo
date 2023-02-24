@@ -16,10 +16,16 @@ jobs:
     - name: Check .mat file names
       run: |
         csfiles=$(find . -name '*.mat' -print)
+        not_valid_files = ()
         for file in $csfiles; do
           filename=$(basename $file)
           if [[ ${filename:0:1} != [[:upper:]] ]]; then
-            echo "$filename doesn't start with upper case!"
+            not_valid_files+=($filename)
           fi
         done
-
+        if [{$#not_valid_files[@]} -gt 0]; then
+          for file in $not_vaild_files[@]; do
+            echo "$file"
+          done
+          exit 1
+        fi
