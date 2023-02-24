@@ -23,4 +23,4 @@ jobs:
             not_valid_files+=($filename)
           fi
         done
-        echo "${not_valid_files[@]}"
+        echo "lenght: ${#not_valid_files[@]}"
