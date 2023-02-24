@@ -23,4 +23,8 @@ jobs:
             not_valid_files+=($filename)
           fi
         done
-        echo "lenght: ${#not_valid_files[@]}"
+        if [[ ${#not_valid_files[@]} -gt 0]]; then
+          for file in "${not_vaild_files[@]}"; do
+            echo "$file"
+          done
+
