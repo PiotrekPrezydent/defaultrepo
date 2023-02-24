@@ -24,7 +24,7 @@ jobs:
           fi
         done
         if [[ ${#not_valid_files[@]} -gt 0 ]]; then
-          for file in $not_vaild_files[@]; do
+          for file in $not_vaild_files; do
             echo "$file"
           done
           exit 1
