@@ -1,0 +1,27 @@
+name: Check .mat file names
+
+on: [push, pull_request]
+
+jobs:
+  check-mat-file-names:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        dotnet-version: ['2.1']
+        
+    steps:
+    - uses: actions/checkout@v3
+    
+      - name: Build project
+        run: dotnet build
+        
+      - name: Check .mat file names
+        run: |
+          shopt -s globstar
+          for file in **/*.mat; do
+            if [[ $file != ${file^^} ]]; then
+              echo "ERROR: File name '$file' should be uppercase."
+              exit 1
+            fi
+          done
