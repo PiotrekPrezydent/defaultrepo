@@ -1,6 +1,6 @@
 name: Check .mat file names
 
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
   check-mat-file-names:
