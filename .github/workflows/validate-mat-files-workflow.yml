@@ -28,8 +28,7 @@ jobs:
           fi
         done
         
-        bac = 120;
-        if [ $bac -gt 0]
+        if [ "120" -gt 0]
         then
           echo "echonic"
         fi
