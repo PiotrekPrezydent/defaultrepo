@@ -24,7 +24,7 @@ jobs:
             not_valid_files+=($filename)
           fi
         done
-        for file in $not_vaild_files; do
+        for file in "${not_vaild_files[@]}"; do
           echo "i have $file"
         done
 
