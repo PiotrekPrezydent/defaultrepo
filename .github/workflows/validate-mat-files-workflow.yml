@@ -22,7 +22,6 @@ jobs:
         do
           filename=$(basename $file)
           if [[ ${filename:0:1} != [[:upper:]] ]]; then
-            echo "added $filename"
             not_valid_files+=($filename)
           fi
         done
@@ -30,8 +29,9 @@ jobs:
         if [ ${#not_valid_files[@]} -gt 0 ]; then
           for (( i=0; i<${#not_valid_files[@]}; i++ ))
           do
-            echo "i have : ${not_valid_files[$i]}"
+            echo "${not_valid_files[$i]} is not nammed with uppercase!"
           done
+          exit 1
         fi
 
 
