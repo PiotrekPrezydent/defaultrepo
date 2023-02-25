@@ -27,4 +27,5 @@ jobs:
           for file in $not_vaild_files; do
             echo "$file"
           done
+        fi
 
