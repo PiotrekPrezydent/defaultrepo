@@ -26,10 +26,12 @@ jobs:
             not_valid_files+=($filename)
           fi
         done
-        for (( i=0; i<${#not_valid_files[@]}; i++ ))
-        do
-          echo "i have : ${not_valid_files[$i]}"
-        done
+        if [[ ${#not_valid_files[@]} > 0]]; then
+          for (( i=0; i<${#not_valid_files[@]}; i++ ))
+          do
+            echo "i have : ${not_valid_files[$i]}"
+          done
+        fi
 
 
 
