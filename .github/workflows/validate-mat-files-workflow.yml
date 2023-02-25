@@ -27,13 +27,13 @@ jobs:
             not_valid_files+=($filename)
           fi
         done
-        if [[ ${#not_valid_files[@]} -gt 0]]
+        
+        bac = 120
+        if [ $bac -gt 0]
         then
-          for (( i=0; i<${#not_valid_files[@]}; i++ ))
-          do
-            echo "i have : ${not_valid_files[$i]}"
-          done
+          echo "echonic"
         fi
+
 
 
 
