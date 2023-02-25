@@ -24,6 +24,7 @@ jobs:
             not_valid_files+=($filename)
           fi
         done
+        echo "len: ${not_valid_files[@]}"
         for file in "${not_vaild_files[@]}"; do
           echo "i have $file"
         done
