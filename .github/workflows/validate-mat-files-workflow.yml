@@ -26,11 +26,10 @@ jobs:
             not_valid_files+=($filename)
           fi
         done
-        
-        echo "len: ${#not_valid_files[@]}"
-        for addedFile in $matfiles
+        $lenght = ${#not_valid_files[@]}
+        for ((i=0;i<lenght;i++))
         do
-          echo "i have $addedFile"
+          echo "i have : ${not_valid_files[$i]}"
         done
 
 
