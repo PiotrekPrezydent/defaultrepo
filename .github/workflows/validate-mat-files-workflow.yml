@@ -27,12 +27,11 @@ jobs:
           fi
         done
         
-    - name: print not valid items
-      run: |
         echo "len: ${#not_valid_files[@]}"
-        for addedFile in "${not_vaild_files[@]}"
+        for addedFile in $matfiles
         do
           echo "i have $addedFile"
         done
+
 
 
