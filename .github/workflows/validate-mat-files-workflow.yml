@@ -17,16 +17,21 @@ jobs:
       run: |
         matfiles=$(find . -name '*.cs' -print)
         not_valid_files=()
-        for file in $matfiles; do
+        
+        for file in $matfiles 
+        do
           filename=$(basename $file)
           if [[ ${filename:0:1} != [[:upper:]] ]]; then
             echo "added $filename"
             not_valid_files+=($filename)
           fi
         done
+        
         echo "len: ${#not_valid_files[@]}"
-        for file in ${not_vaild_files[@]}; do
-          echo "i have $file"
+        
+        for addedFile in ${not_vaild_files[@]}
+        do
+          echo "i have $addedFile"
         done
 
 
