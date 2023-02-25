@@ -15,16 +15,17 @@ jobs:
            
     - name: Check .mat file names
       run: |
-        matfiles=$(find . -name '*.mat' -print)
+        matfiles=$(find . -name '*.cs' -print)
         not_valid_files=()
         for file in $matfiles; do
           filename=$(basename $file)
           if [[ ${filename:0:1} != [[:upper:]] ]]; then
+            echo "added $filename"
             not_valid_files+=($filename)
           fi
         done
         for file in $not_vaild_files; do
-          echo "$file"
+          echo "i have $file"
         done
 
 
