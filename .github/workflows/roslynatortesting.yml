@@ -21,5 +21,11 @@ jobs:
         
     - name: print diagnostic
       run: dotnet build -v q
+    
+    - name: install roslynator
+      run: |
+        dotnet tool install -g roslynator.dotnet.cli
+        roslynator analyze
+      
 
 
