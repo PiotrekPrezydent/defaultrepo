@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Roslynator>
+  <CodeAnalysis>
+    <Summary>
+      <Diagnostic Id="NUnit2005" Title="Consider using Assert.That(actual, Is.EqualTo(expected)) instead of Assert.AreEqual(expected, actual)" Count="4" />
+    </Summary>
+    <Projects>
+      <Project Name="TestProject1" FilePath="C:\Users\Piotrek\source\repos\defaultrepo\TestProject1\TestProject1.csproj">
+        <Diagnostics>
+          <Diagnostic Id="NUnit2005">
+            <Severity>Warning</Severity>
+            <Message>Consider using Assert.That(actual, Is.EqualTo(expected)) instead of Assert.AreEqual(expected, actual)</Message>
+            <FilePath>C:\Users\Piotrek\source\repos\defaultrepo\TestProject1\UnitTest1.cs</FilePath>
+            <Location Line="24" Character="13" />
+          </Diagnostic>
+          <Diagnostic Id="NUnit2005">
+            <Severity>Warning</Severity>
+            <Message>Consider using Assert.That(actual, Is.EqualTo(expected)) instead of Assert.AreEqual(expected, actual)</Message>
+            <FilePath>C:\Users\Piotrek\source\repos\defaultrepo\TestProject1\UnitTest1.cs</FilePath>
+            <Location Line="34" Character="13" />
+          </Diagnostic>
+          <Diagnostic Id="NUnit2005">
+            <Severity>Warning</Severity>
+            <Message>Consider using Assert.That(actual, Is.EqualTo(expected)) instead of Assert.AreEqual(expected, actual)</Message>
+            <FilePath>C:\Users\Piotrek\source\repos\defaultrepo\TestProject1\UnitTest1.cs</FilePath>
+            <Location Line="44" Character="13" />
+          </Diagnostic>
+          <Diagnostic Id="NUnit2005">
+            <Severity>Warning</Severity>
+            <Message>Consider using Assert.That(actual, Is.EqualTo(expected)) instead of Assert.AreEqual(expected, actual)</Message>
+            <FilePath>C:\Users\Piotrek\source\repos\defaultrepo\TestProject1\UnitTest1.cs</FilePath>
+            <Location Line="54" Character="13" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+    </Projects>
+  </CodeAnalysis>
+</Roslynator>
