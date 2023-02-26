@@ -1,0 +1,26 @@
+name: Test code
+
+on: [push]
+
+jobs:
+  analyze-code-with-roslynator:
+
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        dotnet-version: ['2.1']
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup dotnet
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: ${{ matrix.dotnet-version }}
+      
+    - name: Run roslynator
+      uses: JosefPihrt/Roslynator@v4
+      run: roslynator analyze
+
+
