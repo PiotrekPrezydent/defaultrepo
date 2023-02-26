@@ -20,6 +20,6 @@ jobs:
         dotnet-version: ${{ matrix.dotnet-version }}
         
     - name: print diagnostic
-      run: dotnet build -v diag
+      run: dotnet build -v q
 
 
