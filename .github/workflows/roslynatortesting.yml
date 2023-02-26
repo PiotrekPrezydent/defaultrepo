@@ -13,13 +13,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Setup Roslynator
-      uses: JosefPihrt/Roslynator@v4.2.0
     
     - name: Setup dotnet
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: ${{ matrix.dotnet-version }}
+        
+    - name: Setup Roslynator
+      uses: JosefPihrt/Roslynator@v4.2.0
       
     - name: Run roslynator
       run: roslynator analyze
