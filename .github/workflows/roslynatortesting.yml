@@ -13,6 +13,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - uses: JosefPihrt/Roslynator@v4
     
     - name: Setup dotnet
       uses: actions/setup-dotnet@v3
@@ -20,7 +21,6 @@ jobs:
         dotnet-version: ${{ matrix.dotnet-version }}
       
     - name: Run roslynator
-      uses: JosefPihrt/Roslynator@v4
       run: roslynator analyze
 
 
