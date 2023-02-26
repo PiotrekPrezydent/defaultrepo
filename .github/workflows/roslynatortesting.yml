@@ -19,10 +19,7 @@ jobs:
       with:
         dotnet-version: ${{ matrix.dotnet-version }}
         
-    - name: Setup Roslynator
-      run: dotnet tool install -g roslynator.dotnet.cli
-      
-    - name: Run roslynator
-      run: roslynator analyze
+    - name: print diagnostic
+      run: dotnet build -v diag
 
 
