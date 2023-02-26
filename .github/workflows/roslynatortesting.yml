@@ -20,13 +20,13 @@ jobs:
         dotnet-version: ${{ matrix.dotnet-version }}
         
     - name: Run test in project
-      run: dotnet test --logger "trx;LogFileName=test-results.trx" || true
+      run: dotnet test --logger "xml;LogFileName=test-results.xml" || true
       
     - name: upload
       uses: actions/upload-artifact@v3
       with:
         name: my-artifact
-        path: "**/test-results.trx"
+        path: "**/test-results.xml"
         
     - name: print diagnostic
       run: dotnet build -v q
